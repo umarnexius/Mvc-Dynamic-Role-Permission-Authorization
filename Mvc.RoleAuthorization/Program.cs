@@ -17,7 +17,7 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 	options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+builder.Services.AddDefaultIdentity<IdentityUser<int>>(options =>
 {
 	options.SignIn.RequireConfirmedAccount = true;
 	options.Password.RequireDigit = true;
@@ -26,7 +26,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 	options.Password.RequireUppercase = false;
 	options.Password.RequireLowercase = false;
 })
-	.AddRoles<IdentityRole>()
+	.AddRoles<IdentityRole<int>>()
 	.AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
