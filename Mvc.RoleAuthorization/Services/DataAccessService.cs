@@ -77,7 +77,7 @@ namespace Mvc.RoleAuthorization.Services
 			return result;
 		}
 
-		public async Task<List<NavigationMenuViewModel>> GetPermissionsByRoleIdAsync(string? id)
+		public async Task<List<NavigationMenuViewModel>> GetPermissionsByRoleIdAsync(int id)
 		{
 			var items = await (from m in _context.NavigationMenu
 							   join rm in _context.RoleMenuPermission
@@ -104,9 +104,9 @@ namespace Mvc.RoleAuthorization.Services
 			return items;
 		}
 
-		public async Task<bool> SetPermissionsByRoleIdAsync(string? id, IEnumerable<Guid> permissionIds)
+		public async Task<bool> SetPermissionsByRoleIdAsync(int id, IEnumerable<int> permissionIds)
 		{
-			if (string.IsNullOrWhiteSpace(id)) return false;
+			if (id == null) return false;
 
 			var existing = await _context.RoleMenuPermission.Where(x => x.RoleId == id).ToListAsync();
 			_context.RemoveRange(existing);
@@ -128,17 +128,17 @@ namespace Mvc.RoleAuthorization.Services
 			return result > 0;
 		}
 
-		private async Task<List<string>> GetUserRoleIds(ClaimsPrincipal ctx)
+		private async Task<List<int>> GetUserRoleIds(ClaimsPrincipal ctx)
 		{
-			var userId = GetUserId(ctx);
-			var data = await (from role in _context.UserRoles
-							  where role.UserId == userId
-							  select role.RoleId).ToListAsync();
+            var userId = GetUserId(ctx);
+            var data = await (from role in _context.UserRoles
+                              where role.UserId == userId
+                              select role.RoleId).ToListAsync();
 
-			return data;
-		}
+            return data;
+        }
 
-		private static string? GetUserId(ClaimsPrincipal user) =>
-			(user.Identity) == null ? string.Empty : ((ClaimsIdentity)user.Identity).FindFirst(ClaimTypes.NameIdentifier)?.Value;
+		private static int? GetUserId(ClaimsPrincipal user) =>
+			(user.Identity) == null ? 0 : int.Parse(((ClaimsIdentity)user.Identity).FindFirst(ClaimTypes.NameIdentifier)?.Value);
 	}
 }

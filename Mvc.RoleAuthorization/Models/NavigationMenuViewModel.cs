@@ -2,11 +2,11 @@
 {
 	public class NavigationMenuViewModel
 	{
-		public Guid Id { get; set; }
+		public int Id { get; set; }
 
 		public string? Name { get; set; }
 
-		public Guid? ParentMenuId { get; set; }
+		public int? ParentMenuId { get; set; }
 
 		public string? Area { get; set; }
 

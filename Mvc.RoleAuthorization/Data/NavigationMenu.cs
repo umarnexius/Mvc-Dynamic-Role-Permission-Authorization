@@ -9,12 +9,12 @@ namespace Mvc.RoleAuthorization.Data
 	{
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public Guid Id { get; set; }
+		public int Id { get; set; }
 
 		public string? Name { get; set; }
 
 		[ForeignKey(nameof(ParentNavigationMenu))]
-		public Guid? ParentMenuId { get; set; }
+		public int? ParentMenuId { get; set; }
 
 		public virtual NavigationMenu? ParentNavigationMenu { get; set; }
 

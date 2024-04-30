@@ -7,7 +7,7 @@ namespace Mvc.RoleAuthorization.Services
 	{
 		Task<bool> GetMenuItemsAsync(ClaimsPrincipal ctx, string? ctrl, string? act);
 		Task<List<NavigationMenuViewModel>> GetMenuItemsAsync(ClaimsPrincipal principal);
-		Task<List<NavigationMenuViewModel>> GetPermissionsByRoleIdAsync(string? id);
-		Task<bool> SetPermissionsByRoleIdAsync(string? id, IEnumerable<Guid> permissionIds);
+		Task<List<NavigationMenuViewModel>> GetPermissionsByRoleIdAsync(int id);
+		Task<bool> SetPermissionsByRoleIdAsync(int id, IEnumerable<int> permissionIds);
 	}
 }
