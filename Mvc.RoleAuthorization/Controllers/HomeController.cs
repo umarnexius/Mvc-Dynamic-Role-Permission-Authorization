@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Mvc.RoleAuthorization.Models;
+using Mvc.RoleAuthorization.ViewModels;
 using System;
 using System.Diagnostics;
 

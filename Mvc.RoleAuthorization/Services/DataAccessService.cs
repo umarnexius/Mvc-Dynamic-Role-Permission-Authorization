@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using Mvc.RoleAuthorization.Data;
-using Mvc.RoleAuthorization.Models;
+using Mvc.RoleAuthorization.Data.Custom;
+using Mvc.RoleAuthorization.ViewModels;
 using System.Security.Claims;
 
 namespace Mvc.RoleAuthorization.Services

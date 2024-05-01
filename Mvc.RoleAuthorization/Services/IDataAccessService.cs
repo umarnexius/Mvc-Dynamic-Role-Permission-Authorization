@@ -1,4 +1,4 @@
-﻿using Mvc.RoleAuthorization.Models;
+﻿using Mvc.RoleAuthorization.ViewModels;
 using System.Security.Claims;
 
 namespace Mvc.RoleAuthorization.Services

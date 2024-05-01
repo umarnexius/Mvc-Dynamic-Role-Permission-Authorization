@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Mvc.RoleAuthorization.Models;
+using Mvc.RoleAuthorization.ViewModels;
 using Mvc.RoleAuthorization.Services;
 
 namespace Mvc.RoleAuthorization.Controllers
